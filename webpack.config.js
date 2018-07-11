@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const devServer = require('./webpack/serve');
 const pug = require('./webpack/pug');
 const sass = require('./webpack/sass');
+const css = require('./webpack/css');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
@@ -17,7 +18,7 @@ const common = merge([
       'index': `${PATHS.source}/pages/index/index.js`,
       'blog': `${PATHS.source}/pages/blog/blog.js`
     },
-    output: {
+    output: { 
       path: PATHS.build,
       filename: '[name].js'
     },
@@ -34,8 +35,7 @@ const common = merge([
       })
     ],
   },
-  pug(),
-  sass()
+  pug()
 ]);
 
 
@@ -44,7 +44,9 @@ module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     return merge([
       common,
-      devServer()
+      devServer(),
+      sass(),
+      css()
     ]);
   }
 
