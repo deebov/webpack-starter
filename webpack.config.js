@@ -1,7 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
-const serve = require('./webpack/serve');
+const devServer = require('./webpack/serve');
+const pug = require('./webpack/pug');
 
 const PATHS = {
   source: path.join(__dirname, 'source'),
@@ -9,18 +10,21 @@ const PATHS = {
 };
 
 
-const common = {
-  entry: PATHS.source + '/index.js',
-  output: {
-    path: PATHS.build,
-    filename: '[name].js'
+const common = merge([
+  {
+    entry: PATHS.source + '/index.js',
+    output: {
+      path: PATHS.build,
+      filename: '[name].js'
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: `${PATHS.source}/index.pug`
+      })
+    ],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-    title: 'Webpack app'
-    })
-  ],
-};
+  pug()
+]);
 
 
 module.exports = (env, argv) => {
@@ -28,7 +32,7 @@ module.exports = (env, argv) => {
   if (argv.mode === 'development') {
     return merge([
       common,
-      serve()
+      devServer()
     ]);
   }
 
