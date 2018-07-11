@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "webpack"
+  },
   "devDependencies": {
-    "webpack": "^4.15.1"
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8"
   }
 }
