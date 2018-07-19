@@ -1,17 +1,14 @@
-module.exports = paths => {
-  return {
-    module: {
-      rules: [
-        {
-          test: /\.sass$/,
-          include: paths,
-          use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader'
-          ]
-        }
-      ]
-    }
-  };
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.sass$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      }
+    ]
+  }
 };
