@@ -5,7 +5,7 @@ module.exports = (devMode) => {
   return {
     plugins: [
       new MiniCssExtractPlugin({
-        filename: './css/[name].css'
+        filename: 'assets/css/[name].css'
       }),
       new CssoWebpackPlugin()
     ],
@@ -16,6 +16,13 @@ module.exports = (devMode) => {
           use: [
             devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
+            {
+              loader: 'webpack-px-to-rem',
+              options: {
+                basePx: 16,
+                min: 1
+              }
+            },
             {
               loader: 'postcss-loader',
               options: {

@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    port: 9000,
+    port: 6000,
     stats: 'errors-only'
   }
 };
