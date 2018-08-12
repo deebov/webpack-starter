@@ -2,7 +2,7 @@
 *webpack starter template for web projects*
 
 ### Install
-You can you **yarn** or **npm**  package manager in order to run this starter
+You can you use **yarn** or **npm**  package manager in order to run this starter
 
     npm i 
 
