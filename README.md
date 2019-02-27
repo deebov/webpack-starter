@@ -6,19 +6,24 @@ You can you use **yarn** or **npm**  package manager in order to run this starte
 
     npm i 
 
+### Features
+* Code splitting
+* SASS
+* Pug
+
 ### Run 
 > Common codes will be exported in files named *common*
 
-Run in the mode **production**
+**Production**
 
 	npm run build
-Run in the mode **development**
+**Development**
 
 	npm run dev
-Run in the mode **development** with *webpack-dev-server*
+Run in **development**  mode with *webpack-dev-server*
 	
 	npm run start
-Run in the mode **development** with *webpack-dev-server* and watch the webpack config files with *nodemon*
+Run in **development** mode with *webpack-dev-server* and watch the webpack config files with *nodemon*
 	
 	npm run start:dev
 > *nodemon* must be installed in your machine in order to run this command
